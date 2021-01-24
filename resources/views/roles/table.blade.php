@@ -13,11 +13,11 @@
                 <td width="120">
                     {!! Form::open(['route' => ['roles.destroy', $role->role_id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('roles.show', [$role->role_id]) }}" class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
+                        <a href="{{ route('roles.show', [$role->role_id]) }}" class='btn btn-danger btn-xs'>
+                            <i class="far fa-eye">View</i>
                         </a>
-                        <a href="{{ route('roles.edit', [$role->role_id]) }}" class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
+                        <a href="{{ route('roles.edit', [$role->role_id]) }}" class='btn btn-info btn-xs'>
+                            <i class="far fa-edit">Edit</i>
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>

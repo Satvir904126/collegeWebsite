@@ -5,14 +5,9 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Role Details</h1>
+                    <h1><i class="fa fa-registered">Role Details</i></h1>
                 </div>
-                <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
-                       href="{{ route('roles.index') }}">
-                        Back
-                    </a>
-                </div>
+
             </div>
         </div>
     </section>
@@ -24,6 +19,12 @@
                 <div class="row">
                     @include('roles.show_fields')
                 </div>
+            </div>
+            <div class="col-sm-6">
+                <a class="btn btn-info ml-3"
+                   href="{{ route('roles.index') }}">
+                    Back
+                </a>
             </div>
 
         </div>

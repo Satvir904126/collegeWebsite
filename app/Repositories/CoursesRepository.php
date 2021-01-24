@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class CoursesRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:48 pm UTC
-*/
+ */
 
 class CoursesRepository extends BaseRepository
 {
@@ -22,6 +22,7 @@ class CoursesRepository extends BaseRepository
         'describtion',
         'status'
     ];
+    protected $primaryKey = 'course_id';
 
     /**
      * Return searchable fields

@@ -17,13 +17,7 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'courses.store']) !!}
 
-            <div class="card-body">
-
-                <div class="row">
-                    @include('courses.fields')
-                </div>
 
             </div>
 
@@ -32,7 +26,6 @@
                 <a href="{{ route('courses.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
-            {!! Form::close() !!}
 
         </div>
     </div>

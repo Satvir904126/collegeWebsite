@@ -148,7 +148,7 @@
 </script>
 
 {{-- @yield('third_party_scripts') --}}
-@yield('content');
+{{-- @yield('content'); --}}
 
 @stack('page_scripts')
 </body>

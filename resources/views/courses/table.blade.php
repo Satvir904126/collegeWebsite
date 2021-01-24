@@ -15,14 +15,20 @@
                 <td>{{ $courses->course_name }}</td>
             <td>{{ $courses->course_code }}</td>
             <td>{{ $courses->describtion }}</td>
-            <td>{{ $courses->status }}</td>
+            <td>
+            @if($courses->status = 1)
+            <span class=" bg-success">Active </span>
+            @else
+            <span class="bg-danger">In-Active </span>
+            @endIf
+        </td>
                 <td width="120">
-                    {!! Form::open(['route' => ['courses.destroy', $courses->id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['courses.destroy', $courses->course_id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('courses.show', [$courses->id]) }}" class='btn btn-default btn-xs'>
+                        <a href="{{ route('courses.show', [$courses->course_id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('courses.edit', [$courses->id]) }}" class='btn btn-default btn-xs'>
+                        <a href="{{ route('courses.edit', [$courses->course_id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}

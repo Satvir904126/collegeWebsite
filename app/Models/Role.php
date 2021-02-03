@@ -53,4 +53,9 @@ class Role extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
+
+    public function user()
+    {
+        return $this->hasMany('App\Models\Users');
+    }
 }

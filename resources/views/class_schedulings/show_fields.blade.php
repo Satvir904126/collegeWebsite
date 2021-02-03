@@ -40,11 +40,12 @@
     <p>{{ $classScheduling->time_id }}</p>
 </div>
 
+{{--
 <!-- Teacher Id Field -->
 <div class="col-sm-12">
     {!! Form::label('teacher_id', 'Teacher Id:') !!}
     <p>{{ $classScheduling->teacher_id }}</p>
-</div>
+</div> --}}
 
 <!-- Start Date Field -->
 <div class="col-sm-12">
@@ -63,4 +64,3 @@
     {!! Form::label('status', 'Status:') !!}
     <p>{{ $classScheduling->status }}</p>
 </div>
-

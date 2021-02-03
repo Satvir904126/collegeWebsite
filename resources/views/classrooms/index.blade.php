@@ -5,13 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Classrooms</h1>
+                    <h1><i class="fa fa-home"> Class Rooms</i></h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('classrooms.create') }}">
-                        Add New
-                    </a>
+                    <a data-toggle="modal" data-target="#add-classroom-modal" class="btn btn-primary float-right">
+                        <i class=" fa fa-plus-circle">Add New Room</i> </a>
                 </div>
             </div>
         </div>
@@ -27,9 +25,25 @@
             <div class="card-body p-0">
                 @include('classrooms.table')
 
+                {!! Form::open(['route' => 'classrooms.store']) !!}
+
+                <div class="card-body">
+
+                    <div class="row">
+                        @include('classrooms.fields')
+                    </div>
+
+                </div>
+
+                {{-- <div class="card-footer">
+                    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                    <a href="{{ route('classrooms.index') }}" class="btn btn-default">Cancel</a>
+                </div> --}}
+
+                {!! Form::close() !!}
                 <div class="card-footer clearfix float-right">
                     <div class="float-right">
-                        
+
                     </div>
                 </div>
             </div>
@@ -38,4 +52,3 @@
     </div>
 
 @endsection
-

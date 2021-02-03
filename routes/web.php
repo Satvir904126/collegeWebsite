@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
@@ -58,3 +58,8 @@ Route::resource('teachers', 'TeachersController');
 Route::resource('roles', 'RoleController');
 
 Route::resource('users', 'UserController');
+
+
+Route::resource('semesters', 'SemesterController');
+
+Route::get('/dynamiclevel', ['as' => 'dynamiclevel', 'uses' => 'ClassSchedulingController@DynamicLevel']);

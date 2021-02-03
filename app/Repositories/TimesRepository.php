@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class TimesRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:49 pm UTC
-*/
+ */
 
 class TimesRepository extends BaseRepository
 {
@@ -19,6 +19,7 @@ class TimesRepository extends BaseRepository
     protected $fieldSearchable = [
         'time'
     ];
+    protected $primaryKey = 'time_id';
 
     /**
      * Return searchable fields

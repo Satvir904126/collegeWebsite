@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class ShiftRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:47 pm UTC
-*/
+ */
 
 class ShiftRepository extends BaseRepository
 {
@@ -19,6 +19,7 @@ class ShiftRepository extends BaseRepository
     protected $fieldSearchable = [
         'shift'
     ];
+    protected $primaryKey = 'shift_id';
 
     /**
      * Return searchable fields

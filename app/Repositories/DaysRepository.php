@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class DaysRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:52 pm UTC
-*/
+ */
 
 class DaysRepository extends BaseRepository
 {
@@ -19,6 +19,7 @@ class DaysRepository extends BaseRepository
     protected $fieldSearchable = [
         'name'
     ];
+    protected $primaryKey = 'days_id';
 
     /**
      * Return searchable fields

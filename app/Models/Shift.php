@@ -17,12 +17,13 @@ class Shift extends Model
     use SoftDeletes;
 
     public $table = 'shifts';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
+    protected $primaryKey = 'shift_id';
 
 
 
@@ -51,6 +52,4 @@ class Shift extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
-
-    
 }

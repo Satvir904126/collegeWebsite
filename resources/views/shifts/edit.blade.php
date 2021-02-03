@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::model($shift, ['route' => ['shifts.update', $shift->id], 'method' => 'patch']) !!}
+            {!! Form::model($shift, ['route' => ['shifts.update', $shift->shift_id], 'method' => 'patch']) !!}
 
             <div class="card-body">
                 <div class="row">
@@ -30,7 +30,7 @@
                 <a href="{{ route('shifts.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
-           {!! Form::close() !!}
+            {!! Form::close() !!}
 
         </div>
     </div>

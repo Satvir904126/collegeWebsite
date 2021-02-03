@@ -17,7 +17,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $batch_id
  * @property integer $day_id
  * @property integer $time_id
- * @property integer $teacher_id
+//  * @property integer $teacher_id
+ * @property integer $semester_id
  * @property time $start_date
  * @property time $end_date
  * @property boolean $status
@@ -27,7 +28,7 @@ class ClassScheduling extends Model
     use SoftDeletes;
 
     public $table = 'schedulings';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -44,11 +45,14 @@ class ClassScheduling extends Model
         'batch_id',
         'day_id',
         'time_id',
-        'teacher_id',
+        //  'teacher_id',
+        'semester_id',
         'start_date',
         'end_date',
         'status'
     ];
+    protected $primaryKey = 'scedule_id';
+
 
     /**
      * The attributes that should be casted to native types.
@@ -64,7 +68,8 @@ class ClassScheduling extends Model
         'batch_id' => 'integer',
         'day_id' => 'integer',
         'time_id' => 'integer',
-        'teacher_id' => 'integer',
+        // 'teacher_id' => 'integer',
+        'semester_id' => 'integer',
         'status' => 'boolean'
     ];
 
@@ -81,7 +86,8 @@ class ClassScheduling extends Model
         'batch_id' => 'required|integer',
         'day_id' => 'required|integer',
         'time_id' => 'required|integer',
-        'teacher_id' => 'required|integer',
+        // 'teacher_id' => 'required|integer',
+        'semester_id' => 'required|integer',
         'start_date' => 'required',
         'end_date' => 'required',
         'status' => 'required|boolean',
@@ -89,6 +95,4 @@ class ClassScheduling extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
-
-    
 }

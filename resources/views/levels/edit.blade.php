@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::model($levels, ['route' => ['levels.update', $levels->id], 'method' => 'patch']) !!}
+            {!! Form::model($levels, ['route' => ['levels.update', $levels->level_id], 'method' => 'patch']) !!}
 
             <div class="card-body">
                 <div class="row">
@@ -30,7 +30,7 @@
                 <a href="{{ route('levels.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
-           {!! Form::close() !!}
+            {!! Form::close() !!}
 
         </div>
     </div>

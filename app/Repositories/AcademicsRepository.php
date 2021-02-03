@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class AcademicsRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:51 pm UTC
-*/
+ */
 
 class AcademicsRepository extends BaseRepository
 {
@@ -29,7 +29,7 @@ class AcademicsRepository extends BaseRepository
     {
         return $this->fieldSearchable;
     }
-
+    protected $primaryKey = 'academic_id';
     /**
      * Configure the Model
      **/

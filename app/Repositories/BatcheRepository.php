@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class BatcheRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:46 pm UTC
-*/
+ */
 
 class BatcheRepository extends BaseRepository
 {
@@ -29,6 +29,7 @@ class BatcheRepository extends BaseRepository
     {
         return $this->fieldSearchable;
     }
+    protected $primaryKey = 'batch_id';
 
     /**
      * Configure the Model

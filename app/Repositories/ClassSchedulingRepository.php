@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class ClassSchedulingRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:54 pm UTC
-*/
+ */
 
 class ClassSchedulingRepository extends BaseRepository
 {
@@ -29,6 +29,8 @@ class ClassSchedulingRepository extends BaseRepository
         'end_date',
         'status'
     ];
+    protected $primaryKey = 'scedule_id';
+
 
     /**
      * Return searchable fields

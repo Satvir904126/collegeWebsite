@@ -17,12 +17,13 @@ class Times extends Model
     use SoftDeletes;
 
     public $table = 'times';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
+    protected $primaryKey = 'time_id';
 
 
 
@@ -51,6 +52,4 @@ class Times extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
-
-    
 }

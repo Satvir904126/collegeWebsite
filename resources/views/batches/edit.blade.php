@@ -17,21 +17,20 @@
 
         <div class="card">
 
-            {!! Form::model($batche, ['route' => ['batches.update', $batche->id], 'method' => 'patch']) !!}
+            {!! Form::model($batche, ['route' => ['batches.update', $batche->batch_id], 'method' => 'patch']) !!}
 
-            <div class="card-body">
-                <div class="row">
-                    @include('batches.fields')
-                </div>
+            <!-- Batch Field -->
+            <div class="form-group col-sm-6">
+                {!! Form::label('batch', 'Batch Year:') !!}
+                {!! Form::text('batch', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' => 255]) !!}
             </div>
-
-            <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('batches.index') }}" class="btn btn-default">Cancel</a>
-            </div>
-
-           {!! Form::close() !!}
+        </div>
+        <div class="modal-footer">
+            {!! Form::submit('Update Batch', ['class' => 'btn btn-info']) !!}
 
         </div>
+        {!! Form::close() !!}
+
+    </div>
     </div>
 @endsection

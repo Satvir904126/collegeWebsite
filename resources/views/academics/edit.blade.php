@@ -17,21 +17,23 @@
 
         <div class="card">
 
-            {!! Form::model($academics, ['route' => ['academics.update', $academics->id], 'method' => 'patch']) !!}
+            {!! Form::model($academics, ['route' => ['academics.update', $academics->academic_id], 'method' => 'patch']) !!}
 
             <div class="card-body">
                 <div class="row">
-                    @include('academics.fields')
+                    <div class="form-group col-sm-6">
+                        {!! Form::label('academic_year', 'Academic Year:') !!}
+                        {!! Form::text('academic_year', null, ['class' => 'form-control', 'maxlength' => 255, 'maxlength' =>
+                        255]) !!}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        {!! Form::submit('Update Academic Year', ['class' => 'btn btn-success']) !!}
+
+                    </div>
                 </div>
+                {!! Form::close() !!}
+
             </div>
-
-            <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('academics.index') }}" class="btn btn-default">Cancel</a>
-            </div>
-
-           {!! Form::close() !!}
-
         </div>
-    </div>
-@endsection
+    @endsection

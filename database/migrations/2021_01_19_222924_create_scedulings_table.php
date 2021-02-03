@@ -22,7 +22,8 @@ class CreateScedulingsTable extends Migration
             $table->integer('batch_id');
             $table->integer('day_id');
             $table->integer('time_id');
-            $table->integer('teacher_id');
+            // $table->integer('teacher_id');
+            $table->integer('semester_id');
             $table->time('start_date');
             $table->time('end_date');
             $table->tinyInteger('status')->default(1);

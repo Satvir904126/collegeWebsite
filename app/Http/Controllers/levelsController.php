@@ -6,6 +6,7 @@ use App\Http\Requests\CreatelevelsRequest;
 use App\Http\Requests\UpdatelevelsRequest;
 use App\Repositories\levelsRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Courses;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -29,7 +30,15 @@ class levelsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $levels = $this->levelsRepository->all();
+        // $levels = $this->levelsRepository->all();
+        // $course = Courses::all();
+
+        $levels = \DB::table('levels')->select(
+            'courses.*',
+            'levels.*'
+        )
+            ->join('courses', 'courses.course_id', '=', 'levels.course_id')
+            ->get();
 
         return view('levels.index')
             ->with('levels', $levels);
@@ -42,7 +51,10 @@ class levelsController extends AppBaseController
      */
     public function create()
     {
-        return view('levels.create');
+
+        $course = Courses::all();
+
+        return view('levels.create', compact('course'));
     }
 
     /**

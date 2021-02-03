@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class levelsRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:45 pm UTC
-*/
+ */
 
 class levelsRepository extends BaseRepository
 {
@@ -21,6 +21,7 @@ class levelsRepository extends BaseRepository
         'course_id',
         'level_description'
     ];
+    protected $primaryKey = 'level_id';
 
     /**
      * Return searchable fields

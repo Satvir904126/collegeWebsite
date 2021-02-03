@@ -22,7 +22,7 @@ class User extends Model
     use SoftDeletes;
 
     public $table = 'users';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -70,6 +70,8 @@ class User extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
-
-    
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
+    }
 }

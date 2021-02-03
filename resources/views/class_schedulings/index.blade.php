@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Class Schedulings</h1>
+                    <h1>Class Schedules</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('classSchedulings.create') }}">
-                        Add New
+
+                    <a data-toggle="modal" data-target="#add-classschedule-modal" class="btn btn-primary float-right">
+                        <i class=" fa fa-plus-circle"> Generate Schedule</i>
                     </a>
                 </div>
             </div>
@@ -20,22 +20,33 @@
     <div class="content px-3">
 
         @include('flash::message')
+        @include('adminlte-templates::common.errors')
 
         <div class="clearfix"></div>
 
         <div class="card">
             <div class="card-body p-0">
                 @include('class_schedulings.table')
+                <div class="card">
 
-                <div class="card-footer clearfix float-right">
-                    <div class="float-right">
-                        
+                    {!! Form::open(['route' => 'classSchedulings.store']) !!}
+
+                    <div class="card-body">
+
+                        <div class="row">
+                            @include('class_schedulings.fields')
+                        </div>
+
                     </div>
+
+
+
+                    {!! Form::close() !!}
+
+
                 </div>
+
             </div>
-
         </div>
-    </div>
 
-@endsection
-
+    @endsection

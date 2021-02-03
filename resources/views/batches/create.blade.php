@@ -28,7 +28,8 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                {{-- {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                --}}
                 <a href="{{ route('batches.index') }}" class="btn btn-default">Cancel</a>
             </div>
 

@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class TeachersRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:56 pm UTC
-*/
+ */
 
 class TeachersRepository extends BaseRepository
 {
@@ -31,6 +31,7 @@ class TeachersRepository extends BaseRepository
         'user_id',
         'image'
     ];
+    protected $primaryKey = 'techer_id';
 
     /**
      * Return searchable fields

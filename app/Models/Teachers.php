@@ -29,12 +29,13 @@ class Teachers extends Model
     use SoftDeletes;
 
     public $table = 'teachers';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
+    protected $primaryKey = 'techer_id';
 
 
 
@@ -99,6 +100,4 @@ class Teachers extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
-
-    
 }

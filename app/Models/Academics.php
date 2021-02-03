@@ -17,7 +17,7 @@ class Academics extends Model
     use SoftDeletes;
 
     public $table = 'academics';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -29,7 +29,7 @@ class Academics extends Model
     public $fillable = [
         'academic_year'
     ];
-
+    protected $primaryKey = 'academic_id';
     /**
      * The attributes that should be casted to native types.
      *
@@ -51,6 +51,4 @@ class Academics extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
-
-    
 }

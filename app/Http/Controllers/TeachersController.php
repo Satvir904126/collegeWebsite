@@ -6,6 +6,7 @@ use App\Http\Requests\CreateTeachersRequest;
 use App\Http\Requests\UpdateTeachersRequest;
 use App\Repositories\TeachersRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Teachers;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -29,6 +30,7 @@ class TeachersController extends AppBaseController
      */
     public function index(Request $request)
     {
+
         $teachers = $this->teachersRepository->all();
 
         return view('teachers.index')
@@ -42,6 +44,7 @@ class TeachersController extends AppBaseController
      */
     public function create()
     {
+
         return view('teachers.create');
     }
 
@@ -55,6 +58,36 @@ class TeachersController extends AppBaseController
     public function store(CreateTeachersRequest $request)
     {
         $input = $request->all();
+        // dd($input);
+        // adding teacher image
+        // $request->validate([
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+        $image = $request->file('image');
+
+        $image_name = time() . "." . $image->getClientOriginalExtension();
+        $image->move(public_path('teacher_image'), $image_name);
+        // dd($image);
+        // dd($image_name);
+
+        $teacher = new Teachers;
+        $teacher->first_name = $request->first_name;
+        $teacher->last_name = $request->last_name;
+        $teacher->gender = $request->gender;
+        $teacher->email = $request->email;
+        $teacher->dob = $request->dob;
+        $teacher->phone = $request->phone;
+        $teacher->address = $request->address;
+        $teacher->nationality = $request->nationality;
+        $teacher->passport = $request->passport;
+        $teacher->status = $request->status;
+        $teacher->dateregistered = $request->dateregistered;
+        $teacher->user_id = $request->user_id;
+        $teacher->image = $image_name;
+
+        // dd($teacher);
+        $teacher->save();
+
 
         $teachers = $this->teachersRepository->create($input);
 

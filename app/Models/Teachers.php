@@ -95,7 +95,8 @@ class Teachers extends Model
         'status' => 'required|string|max:255',
         'dateregistered' => 'required',
         'user_id' => 'required|integer',
-        'image' => 'required|string|max:255',
+        // 'image' => 'required|image|max:255',
+        'image' => 'image|max:255',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

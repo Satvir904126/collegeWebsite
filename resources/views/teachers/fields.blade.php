@@ -1,5 +1,5 @@
 <style>
-    .student_image {
+    .teacher_image {
         height: 130px;
         width: 100%;
         /* background-color: aqua; */
@@ -91,9 +91,7 @@
 
                                 <!-- Email Field -->
                                 <div class="form-group ">
-                                    {{-- {!! Form::label('email', 'Email:') !!}
-                                {!! Form::email('email', null, ['class' => 'form-control', 'maxlength' => 255,
-                                'maxlength' => 255]) !!} --}}
+
                                     <input type="text" name="email" id="email" class="form-control text-capitalize"
                                         placeholder="Enter Email Address Here">
 
@@ -190,7 +188,7 @@
                                                 <tr>
                                                     <td class="image">
                                                         {{ Html::image('student_images/profile.jpg', null, ['class' =>
-                                                        'student_image', 'id' => 'showImage']) }}
+                                                        'teacher_image', 'id' => 'showImage']) }}
                                                         <input type="file" name="image" id="image"
                                                             accept="image/x-pmg,image/png,image/jpg,image/jpeg">
                                                     </td>

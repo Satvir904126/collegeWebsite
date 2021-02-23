@@ -9,7 +9,7 @@ use App\Repositories\BaseRepository;
  * Class AdmissionRepository
  * @package App\Repositories
  * @version January 19, 2021, 11:56 pm UTC
-*/
+ */
 
 class AdmissionRepository extends BaseRepository
 {
@@ -37,6 +37,7 @@ class AdmissionRepository extends BaseRepository
         'class_id',
         'image'
     ];
+    protected $primaryKey = 'student_id';
 
     /**
      * Return searchable fields

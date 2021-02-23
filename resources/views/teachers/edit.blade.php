@@ -280,8 +280,8 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="reset" class="btn btn-secondary">Clear Form</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        {{-- <button type="reset" class="btn btn-secondary">Clear Form</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
         {!! Form::submit('Update Teacher', ['class' => 'btn btn-success']) !!}
 
     </div>

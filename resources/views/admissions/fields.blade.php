@@ -1,3 +1,15 @@
+<style>
+    .student_image {
+        height: 130px;
+        width: 100%;
+        /* background-color: aqua; */
+        border-radius: 12%;
+    }
+
+    #image {
+        display: none;
+    }
+</style>
 <!-- Roll No Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('roll_no', 'Roll No:') !!}
@@ -53,13 +65,13 @@
 </div>
 
 @push('page_scripts')
-    <script type="text/javascript">
-        $('#dob').datetimepicker({
+<script type="text/javascript">
+    $('#dob').datetimepicker({
             format: 'YYYY-MM-DD HH:mm:ss',
             useCurrent: true,
             sideBySide: true
         })
-    </script>
+</script>
 @endpush
 
 <!-- Phone Field -->
@@ -109,13 +121,13 @@
 </div>
 
 @push('page_scripts')
-    <script type="text/javascript">
-        $('#dateregistered').datetimepicker({
+<script type="text/javascript">
+    $('#dateregistered').datetimepicker({
             format: 'YYYY-MM-DD HH:mm:ss',
             useCurrent: true,
             sideBySide: true
         })
-    </script>
+</script>
 @endpush
 
 <!-- User Id Field -->
@@ -131,7 +143,43 @@
 </div>
 
 <!-- Image Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('image', 'Image:') !!}
     {!! Form::text('image', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+</div> --}}
+<!-- Image Field -->
+<div class="form-group col-sm-6 ">
+    <div class="from-group-login col-sm-3">
+
+        {{ Html::image('student_images/profile.jpg', null, ['class' =>
+                        'student_image', 'id' => 'showImage']) }}
+        <input type="file" name="image" id="image" accept="image/x-pmg,image/png,image/jpg,image/jpeg">
+
+
+        <input type="button" name="browse_file" id="browse_file" class="form-control text-capitalize  btn-browse"
+            class="btn btn-outline-danger" value="Choose">
+
+    </div>
 </div>
+@push('page_scripts')
+<script>
+    $('#browse_file').click(function(){
+      $('#image').click();
+
+})
+$('#image').on('change',function(e){
+
+showFile(this,'#showImage');
+})
+function showFile(fileInput,img,showName){
+if(fileInput.files[0]){
+var reader = new FileReader();
+reader.onload= function(e){
+$(img).attr('src',e.target.result);
+}
+reader.readAsDataURL(fileInput.files[0]);
+}
+$(showName).text(fileInput.files[0].name)
+};
+</script>
+@endpush

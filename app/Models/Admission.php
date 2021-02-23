@@ -35,12 +35,13 @@ class Admission extends Model
     use SoftDeletes;
 
     public $table = 'admissions';
-    
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
+    protected $primaryKey = 'student_id';
 
 
 
@@ -118,11 +119,10 @@ class Admission extends Model
         'dateregistered' => 'required',
         'user_id' => 'required|integer',
         'class_id' => 'required|integer',
-        'image' => 'required|string|max:255',
+        // 'image' => 'required|string|max:255',
+        'image' => 'image',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
-
-    
 }

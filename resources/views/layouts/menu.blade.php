@@ -252,3 +252,11 @@
 
     </script>
 @endpush
+<li class="nav-item">
+    <a href="{{ route('rolls.index') }}"
+       class="nav-link {{ Request::is('rolls*') ? 'active' : '' }}">
+        <p>Rolls</p>
+    </a>
+</li>
+
+

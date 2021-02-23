@@ -60,15 +60,15 @@ class TeachersController extends AppBaseController
         $input = $request->all();
         // dd($input);
         // adding teacher image
-        // $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
         $image = $request->file('image');
 
         $image_name = time() . "." . $image->getClientOriginalExtension();
         $image->move(public_path('teacher_image'), $image_name);
         // dd($image);
-        // dd($image_name);
+        //  dd($image_name);
 
         $teacher = new Teachers;
         $teacher->first_name = $request->first_name;
@@ -89,7 +89,7 @@ class TeachersController extends AppBaseController
         $teacher->save();
 
 
-        $teachers = $this->teachersRepository->create($input);
+        // $teachers = $this->teachersRepository->create($input);
 
         Flash::success('Teachers saved successfully.');
 

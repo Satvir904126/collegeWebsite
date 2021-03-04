@@ -20,7 +20,15 @@ class StudentController extends Controller
      */
     public function studentLogin(Request $request)
     {
+        // dd($request);
+
         return view('students.login');
+    }
+    public function studentLogout(Request $request)
+    {
+        $request->session()->flush();
+
+        return redirect('/');
     }
     public function LoginStudent(Request $request)
     {

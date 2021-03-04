@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $courses = "";
+    return view('welcome', compact('courses'));
 });
 Auth::routes();
 Route::group(['middleware' => 'studentSession'], function () {
@@ -39,45 +40,58 @@ route::post('student-login', 'StudentController@LoginStudent');
 Route::get('/home', 'HomeController@index')->middleware('auth');
 
 
-Route::resource('classes', 'classesController');
+Route::resource('classes', 'classesController')->middleware('auth');
 
-Route::resource('classrooms', 'classroomController');
+Route::resource('classrooms', 'classroomController')->middleware('auth');
 
-Route::resource('levels', 'levelsController');
+Route::resource('levels', 'levelsController')->middleware('auth');
 
-Route::resource('batches', 'BatcheController');
+Route::resource('batches', 'BatcheController')->middleware('auth');
 
-Route::resource('shifts', 'ShiftController');
+Route::resource('shifts', 'ShiftController')->middleware('auth');
 
 Route::resource('courses', 'CoursesController');
+Route::get('getcourses', 'CoursesController@getCourses')->name('courses.getCourses');
+Route::get('search', 'CoursesController@courseSearch')->name('courses.search');
+Route::get('course-details', 'CoursesController@courseDetail')->name('courses.course-details');
 
-Route::resource('faculties', 'FacultiesController');
+// Route::get('courses/search', 'CoursesController@courseSearch')->name('courses.search');
 
-Route::resource('times', 'TimesController');
+Route::resource('faculties', 'FacultiesController')->middleware('auth');
 
-Route::resource('attendances', 'AttendanceController');
+Route::resource('times', 'TimesController')->middleware('auth');
 
-Route::resource('academics', 'AcademicsController');
+Route::resource('attendances', 'AttendanceController')->middleware('auth');
 
-Route::resource('days', 'DaysController');
+Route::resource('academics', 'AcademicsController')->middleware('auth');
 
-Route::resource('classAssignings', 'ClassAssigningController');
+Route::resource('days', 'DaysController')->middleware('auth');
 
-Route::resource('classSchedulings', 'ClassSchedulingController');
+Route::resource('classAssignings', 'ClassAssigningController')->middleware('auth');
 
-Route::resource('transactions', 'TransactionsController');
+Route::resource('classSchedulings', 'ClassSchedulingController')->middleware('auth');
+
+Route::resource('transactions', 'TransactionsController')->middleware('auth');
 
 Route::resource('admissions', 'AdmissionController')->middleware('auth');
 
-Route::resource('teachers', 'TeachersController');
+Route::resource('teachers', 'TeachersController')->middleware('auth');
 
-Route::resource('roles', 'RoleController');
+Route::resource('roles', 'RoleController')->middleware('auth');
 
-Route::resource('users', 'UserController');
+Route::resource('users', 'UserController')->middleware('auth');
 
 
-Route::resource('semesters', 'SemesterController');
+Route::resource('semesters', 'SemesterController')->middleware('auth');
 
 Route::get('/dynamiclevel', ['as' => 'dynamiclevel', 'uses' => 'ClassSchedulingController@DynamicLevel']);
 
 Route::resource('rolls', 'RollsController');
+Route::get('about-us', 'AboutusController@index')->name('aboui-us');
+
+Route::get('/contact', 'ContactusController@index')->name('contact');
+Route::get('/blog', 'BlogsController@indexHome')->name('blogs');
+Route::get('/blog/filter/{filter}', 'BlogsController@filterBlog')->name('filterBlog');
+Route::get('/blog/searchPost', 'BlogsController@searchBlog')->name('searchBlog');
+
+Route::resource('blogs', 'blogsController');

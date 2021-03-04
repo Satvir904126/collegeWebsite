@@ -16,6 +16,8 @@ class StudentLogin
      */
     public function handle($request, Closure $next)
     {
+        // dd("studentlogin");
+
         if (empty(Session::has('studentSession'))) {
             return redirect('/student');
         }

@@ -6,6 +6,7 @@ use App\Http\Requests\CreateCoursesRequest;
 use App\Http\Requests\UpdateCoursesRequest;
 use App\Repositories\CoursesRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Courses;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -34,7 +35,15 @@ class CoursesController extends AppBaseController
         return view('courses.index')
             ->with('courses', $courses);
     }
-
+    public function getCourses(Request $request)
+    {
+        $courses = $this->coursesRepository->all();
+        return view('courses', compact('courses'));
+    }
+    public function courseDetail(Request $request)
+    {
+        return view('course-details');
+    }
     /**
      * Show the form for creating a new Courses.
      *
@@ -44,6 +53,15 @@ class CoursesController extends AppBaseController
     {
         return view('courses.create');
     }
+    public function courseSearch(Request $request)
+    {
+        $course = $request->input('courses');
+
+        $courses = Courses::Where("course_name", "LIKE", "%$course%")->get();
+        return view('courses', compact('courses'));
+    }
+
+
 
     /**
      * Store a newly created Courses in storage.

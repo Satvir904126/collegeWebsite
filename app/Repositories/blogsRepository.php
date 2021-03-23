@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class blogsRepository
  * @package App\Repositories
- * @version March 2, 2021, 2:47 am UTC
+ * @version March 12, 2021, 1:49 am UTC
  */
 
 class blogsRepository extends BaseRepository

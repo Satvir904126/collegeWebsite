@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @version January 19, 2021, 11:58 pm UTC
  *
  * @property string $name
- * @property integer $role
+ * @property integer $role_id
  * @property string $email
  * @property string|\Carbon\Carbon $email_verified_at
  * @property string $password
@@ -33,7 +33,7 @@ class User extends Model
 
     public $fillable = [
         'name',
-        'role',
+        'role_id',
         'email',
         'email_verified_at',
         'password',
@@ -48,7 +48,7 @@ class User extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
-        'role' => 'integer',
+        'role_id' => 'integer',
         'email' => 'string',
         'email_verified_at' => 'datetime',
         'password' => 'string',
@@ -62,7 +62,7 @@ class User extends Model
      */
     public static $rules = [
         'name' => 'required|string|max:255',
-        'role' => 'required|integer',
+        'role_id' => 'required|integer',
         'email' => 'required|string|max:255',
         'email_verified_at' => 'nullable',
         'password' => 'required|string|max:255',

@@ -6,8 +6,10 @@ use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Repositories\UserRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Hash;
 use Response;
 
 class UserController extends AppBaseController
@@ -42,6 +44,8 @@ class UserController extends AppBaseController
      */
     public function create()
     {
+        // 'name' -> $data['name'],
+        // 'email' -> $data['email'],
         return view('users.create');
     }
 
@@ -54,9 +58,18 @@ class UserController extends AppBaseController
      */
     public function store(CreateUserRequest $request)
     {
-        $input = $request->all();
+        $user = new User;
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->role_id = $request['role_id'];
+        $user->password = Hash::make($request['password']);
+        // $input = $request->all();
 
-        $user = $this->userRepository->create($input);
+        $user->save();
+
+
+        // $user = $this->userRepository->create($users);
+        // dd($user);
 
         Flash::success('User saved successfully.');
 
@@ -114,14 +127,18 @@ class UserController extends AppBaseController
     public function update($id, UpdateUserRequest $request)
     {
         $user = $this->userRepository->find($id);
-
         if (empty($user)) {
             Flash::error('User not found');
 
             return redirect(route('users.index'));
         }
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->role_id = $request['role_id'];
+        $user->password = Hash::make($request['password']);
+        $user->save();
 
-        $user = $this->userRepository->update($request->all(), $id);
+        // $user = $this->userRepository->update($request->all(), $id);
 
         Flash::success('User updated successfully.');
 

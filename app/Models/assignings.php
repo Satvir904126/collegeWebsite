@@ -6,34 +6,31 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class blogs
+ * Class assignings
  * @package App\Models
- * @version March 12, 2021, 1:49 am UTC
+ * @version March 13, 2021, 1:46 am UTC
  *
  * @property integer $teacher_id
  * @property integer $class_schedule_id
  */
-class blogs extends Model
+class assignings extends Model
 {
     use SoftDeletes;
 
-    public $table = 'blogs';
+    public $table = 'assignings';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
-    protected $primaryKey = 'blog_id';
+    protected $primaryKey = 'class_assign_id';
 
 
 
     public $fillable = [
-        'blog_name',
-        'category',
-        'content',
-        'student_id',
-        'image'
+        'teacher_id',
+        'class_schedule_id'
     ];
 
     /**
@@ -42,12 +39,9 @@ class blogs extends Model
      * @var array
      */
     protected $casts = [
-        'blog_id' => 'integer',
-        'blog_name' => 'string',
-        'category' => 'string',
-        'content' => 'string',
-        'student_id' => 'string',
-        'image' => 'string'
+        'class_assign_id' => 'integer',
+        'teacher_id' => 'integer',
+        'class_schedule_id' => 'integer'
     ];
 
     /**
@@ -56,11 +50,8 @@ class blogs extends Model
      * @var array
      */
     public static $rules = [
-        'blog_name' => 'required|string|max:255',
-        'category' => 'required|string|max:255',
-        'content' => 'required|string|max:255',
-        // 'student_id' => 'string|max:255',
-        'image' => 'image|size:5000 ',
+        'teacher_id' => 'required|integer',
+        'class_schedule_id' => 'required|integer',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

@@ -6,8 +6,8 @@
 
 <!-- Role Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('role', 'Role:') !!}
-    {!! Form::number('role', null, ['class' => 'form-control']) !!}
+    {!! Form::label('role_id', 'Role:') !!}
+    {!! Form::number('role_id', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Email Field -->
@@ -23,13 +23,13 @@
 </div>
 
 @push('page_scripts')
-    <script type="text/javascript">
-        $('#email_verified_at').datetimepicker({
+<script type="text/javascript">
+    $('#email_verified_at').datetimepicker({
             format: 'YYYY-MM-DD HH:mm:ss',
             useCurrent: true,
             sideBySide: true
         })
-    </script>
+</script>
 @endpush
 
 <!-- Password Field -->

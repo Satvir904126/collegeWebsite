@@ -151,6 +151,17 @@
                     </nav>
                 </div>
             </div>
+            <div class="col-sm-6">
+
+                <form class="d-flex" action="{{ route('searchSchedule') }}" method="get" style="width: 100%">
+                    <input type=" text" name="seacrhSchedule" class="form-control"
+                        placeholder="Search Schedule by Name">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="lnr lnr-magnifier">Search</i></button>
+                    </span>
+                </form>
+
+            </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget">

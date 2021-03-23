@@ -1,31 +1,29 @@
-@extends('layouts.app')
+<!-- Blog Name Field -->
+<div class="col-sm-12">
+    {!! Form::label('blog_name', 'Blog Name:') !!}
+    <p>{{ $blogs->blog_name }}</p>
+</div>
 
-@section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Blogs Details</h1>
-                </div>
-                <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
-                       href="{{ route('blogs.index') }}">
-                        Back
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Category Field -->
+<div class="col-sm-12">
+    {!! Form::label('category', 'Category:') !!}
+    <p>{{ $blogs->category }}</p>
+</div>
 
-    <div class="content px-3">
-        <div class="card">
+<!-- Content Field -->
+<div class="col-sm-12">
+    {!! Form::label('content', 'Content:') !!}
+    <p>{{ $blogs->content }}</p>
+</div>
 
-            <div class="card-body">
-                <div class="row">
-                    @include('blogs.show_fields')
-                </div>
-            </div>
+<!-- Student Id Field -->
+<div class="col-sm-12">
+    {!! Form::label('student_id', 'Student Id:') !!}
+    <p>{{ $blogs->student_id }}</p>
+</div>
 
-        </div>
-    </div>
-@endsection
+<!-- Image Field -->
+<div class="col-sm-12">
+    {!! Form::label('image', 'Image:') !!}
+    <p>{{ $blogs->image }}</p>
+</div>

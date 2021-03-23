@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatelevelsRequest;
 use App\Repositories\levelsRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Courses;
+use App\Models\levels;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -105,14 +106,14 @@ class levelsController extends AppBaseController
     public function edit($id)
     {
         $levels = $this->levelsRepository->find($id);
-
+        $course = Courses::all();
         if (empty($levels)) {
             Flash::error('Levels not found');
 
             return redirect(route('levels.index'));
         }
 
-        return view('levels.edit')->with('levels', $levels);
+        return view('levels.edit', compact('course'))->with('levels', $levels);
     }
 
     /**
@@ -151,15 +152,16 @@ class levelsController extends AppBaseController
      */
     public function destroy($id)
     {
-        $levels = $this->levelsRepository->find($id);
+        $levels = levels::all()->find($id);
+        // $course = Courses::all();
 
         if (empty($levels)) {
-            Flash::error('Levels not found');
+            Flash::error('Level not found');
 
             return redirect(route('levels.index'));
         }
 
-        $this->levelsRepository->delete($id);
+        $levels->delete();
 
         Flash::success('Levels deleted successfully.');
 

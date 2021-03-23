@@ -43,13 +43,13 @@
                     </div>
 
                     <div class="col-lg-6 col-sm-6 col-8 header-top-right">
-                        <a href="{{ url('login') }}" class="text-uppercase">Login Adminstarator</a>
+                        <a href="{{ url('login') }}" class="text-uppercase">Login Administrator</a>
                         @if (Session::has('studentSession'))
                         <a href="{{ url('/account') }}" class="text-uppercase">Account</a>
                         <a href="{{ url('/logout') }}" class="text-uppercase">Logout</a>
 
                         @else
-                        <a href="{{ url('/student') }}" class="text-uppercase">Login Studetn</a>
+                        <a href="{{ url('/student') }}" class="text-uppercase">Login Student</a>
                         @endif
 
                     </div>

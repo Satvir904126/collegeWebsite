@@ -154,6 +154,11 @@
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Sign out
                     </a>
+                    {{-- <a href="{{ route('student.password.change') }}">Change Password</a>
+                    <a data-toggle="modal" data-target="#settings" class="btn btn-primary float-right"> <i
+                            class=" fa fa-plus-circle"> Change Password</i>
+                    </a> --}}
+
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
@@ -247,6 +252,8 @@
     {{-- jquery --}}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
     @yield('scripts')
 </body>
 

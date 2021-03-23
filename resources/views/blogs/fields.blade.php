@@ -82,7 +82,6 @@
       $('#image').click();
 })
 $('#image').on('change',function(e){
-
 showFile(this,'#showImage');
 })
 function showFile(fileInput,img,showName){

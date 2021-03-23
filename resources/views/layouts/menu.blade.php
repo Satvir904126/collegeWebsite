@@ -1,130 +1,130 @@
-@if (Auth::user()->role_id < 2)
-
-    <ul id="myUL">
-        <li>
-            <p class="caret fa fa-angle-righ">General</p>
-            <ul class="nested">
-                <li class="nav-item">
-                    <a href="{{ route('classes.index') }}"
-                        class="nav-link {{ Request::is('classes*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Classes</p>
-                    </a>
-                </li>
+@if (Auth::user()->role_id < 2) <ul id="myUL">
+    <li>
+        <p class="caret fa fa-angle-righ">General</p>
+        <ul class="nested">
+            <li class="nav-item">
+                <a href="{{ route('classes.index') }}" class="nav-link {{ Request::is('classes*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Classes</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('classrooms.index') }}"
-                        class="nav-link {{ Request::is('classrooms*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Classrooms</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('classrooms.index') }}"
+                    class="nav-link {{ Request::is('classrooms*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Classrooms</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('levels.index') }}" class="nav-link {{ Request::is('levels*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Levels</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('levels.index') }}" class="nav-link {{ Request::is('levels*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Levels</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('batches.index') }}"
-                        class="nav-link {{ Request::is('batches*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Batches</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('batches.index') }}" class="nav-link {{ Request::is('batches*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Batches</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('shifts.index') }}" class="nav-link {{ Request::is('shifts*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Shifts</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('shifts.index') }}" class="nav-link {{ Request::is('shifts*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Shifts</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('courses.index') }}"
-                        class="nav-link {{ Request::is('courses*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Courses</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('courses.index') }}" class="nav-link {{ Request::is('courses*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Courses</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('faculties.index') }}"
-                        class="nav-link {{ Request::is('faculties*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Faculties</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('faculties.index') }}"
+                    class="nav-link {{ Request::is('faculties*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Faculties</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('times.index') }}" class="nav-link {{ Request::is('times*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Times</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('times.index') }}" class="nav-link {{ Request::is('times*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Times</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('academics.index') }}"
-                        class="nav-link {{ Request::is('academics*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Academics</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('academics.index') }}"
+                    class="nav-link {{ Request::is('academics*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Academics</p>
+                </a>
+            </li>
 
 
-                <li class="nav-item">
-                    <a href="{{ route('days.index') }}" class="nav-link {{ Request::is('days*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Days</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('days.index') }}" class="nav-link {{ Request::is('days*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Days</p>
+                </a>
+            </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('semesters.index') }}"
-                        class="nav-link {{ Request::is('semesters*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Semesters</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a href="{{ route('semesters.index') }}"
+                    class="nav-link {{ Request::is('semesters*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Semesters</p>
+                </a>
+            </li>
 
-            </ul>
-        </li>
+        </ul>
+    </li>
     </ul>
 
     <ul id="myUL">
         <li><span class="caret fa fa-angle-left">Schedule</span>
             <ul class="nested">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('classAssignings.index') }}"
-                        class="nav-link {{ Request::is('classAssignings*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Class Assignings</p>
-                    </a>
-                </li>
+                class="nav-link {{ Request::is('classAssignings*') ? 'active' : '' }}">
+                <i class="fa fa-edit"></i>
+                <p>Class Assignings</p>
+                </a>
+        </li> --}}
 
-
-                <li class="nav-item">
-                    <a href="{{ route('classSchedulings.index') }}"
-                        class="nav-link {{ Request::is('classSchedulings*') ? 'active' : '' }}">
-                        <i class="fa fa-edit"></i>
-                        <p>Class Schedulings</p>
-                    </a>
-                </li>
-
-            </ul>
+        <li class="nav-item">
+            <a href="{{ route('addAssigning') }}" class="nav-link {{ Request::is('assignings*') ? 'active' : '' }}">
+                <i class="fa fa-edit"></i>
+                <p>class Assign</p>
+            </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ route('classSchedulings.index') }}"
+                class="nav-link {{ Request::is('classSchedulings*') ? 'active' : '' }}">
+                <i class="fa fa-edit"></i>
+                <p>Class Schedulings</p>
+            </a>
+        </li>
+
     </ul>
-@endif
+    </li>
+    </ul>
+    @endif
 
 
 
@@ -132,66 +132,62 @@
 
 
 
-
-<li class="nav-item">
-    <a href="{{ route('admissions.index') }}" class="nav-link {{ Request::is('admissions*') ? 'active' : '' }}">
-        <i class="fa fa-edit"></i>
-        <p>Admissions</p>
-    </a>
-</li>
-
-
-<li class="nav-item">
-    <a href="{{ route('teachers.index') }}" class="nav-link {{ Request::is('teachers*') ? 'active' : '' }}">
-        <i class="fa fa-edit"></i>
-        <p>Teachers</p>
-    </a>
-</li>
-
-
-
-
-@if (Auth::user()->role_id < 2)
 
     <li class="nav-item">
+        <a href="{{ route('admissions.index') }}" class="nav-link {{ Request::is('admissions*') ? 'active' : '' }}">
+            <i class="fa fa-edit"></i>
+            <p>Admissions</p>
+        </a>
+    </li>
+
+
+    <li class="nav-item">
+        <a href="{{ route('teachers.index') }}" class="nav-link {{ Request::is('teachers*') ? 'active' : '' }}">
+            <i class="fa fa-edit"></i>
+            <p>Teachers</p>
+        </a>
+    </li>
+
+
+
+
+    @if (Auth::user()->role_id < 2) <li class="nav-item">
         <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
             <i class="fa fa-edit"></i>
             <p>Users</p>
         </a>
-    </li>
-@endif
+        </li>
+        @endif
 
 
 
-@if (Auth::user()->role_id < 4)
+        @if (Auth::user()->role_id < 4) <li class="nav-item">
+            <a href="{{ route('attendances.index') }}"
+                class="nav-link {{ Request::is('attendances*') ? 'active' : '' }}">
+                <i class="fa fa-edit"></i>
+                <p>Attendances</p>
+            </a>
+            </li>
+            @endif
+            <li class="nav-item">
+                <a href="{{ route('roles.index') }}" class="nav-link {{ Request::is('roles*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Roles</p>
+                </a>
+            </li>
 
-    <li class="nav-item">
-        <a href="{{ route('attendances.index') }}" class="nav-link {{ Request::is('attendances*') ? 'active' : '' }}">
-            <i class="fa fa-edit"></i>
-            <p>Attendances</p>
-        </a>
-    </li>
-@endif
-<li class="nav-item">
-    <a href="{{ route('roles.index') }}" class="nav-link {{ Request::is('roles*') ? 'active' : '' }}">
-        <i class="fa fa-edit"></i>
-        <p>Roles</p>
-    </a>
-</li>
-
-@if (Auth::user()->role_id < 4)
-
-    <li class="nav-item">
-        <a href="{{ route('transactions.index') }}" class="nav-link {{ Request::is('transactions*') ? 'active' : '' }}">
-            <i class="fa fa-edit"></i>
-            <p>Transactions</p>
-        </a>
-    </li>
-@endif
+            @if (Auth::user()->role_id < 4) <li class="nav-item">
+                <a href="{{ route('transactions.index') }}"
+                    class="nav-link {{ Request::is('transactions*') ? 'active' : '' }}">
+                    <i class="fa fa-edit"></i>
+                    <p>Transactions</p>
+                </a>
+                </li>
+                @endif
 
 
 
-{{-- <div class="treeview w-20 border">
+                {{-- <div class="treeview w-20 border">
     <h6 class="pt-3 pl-3">Folders</h6>
     <hr>
     <ul class="mb-1 pl-3 pb-2">
@@ -237,9 +233,9 @@
     </ul>
 </div> --}}
 
-@push('page_scripts')
-    <script>
-        //   script for treeview sidebar
+                @push('page_scripts')
+                <script>
+                    //   script for treeview sidebar
         var toggler = document.getElementsByClassName("caret");
         var i;
 
@@ -250,21 +246,17 @@
             });
         }
 
-    </script>
-@endpush
-<li class="nav-item">
-    <a href="{{ route('rolls.index') }}"
-       class="nav-link {{ Request::is('rolls*') ? 'active' : '' }}">
-        <p>Rolls</p>
-    </a>
-</li>
+                </script>
+                @endpush
+                <li class="nav-item">
+                    <a href="{{ route('rolls.index') }}" class="nav-link {{ Request::is('rolls*') ? 'active' : '' }}">
+                        <p>Rolls for Students</p>
+                    </a>
+                </li>
 
 
-<li class="nav-item">
-    <a href="{{ route('blogs.index') }}"
-       class="nav-link {{ Request::is('blogs*') ? 'active' : '' }}">
-        <p>Blogs</p>
-    </a>
-</li>
-
-
+                <li class="nav-item">
+                    <a href="{{ route('blogs.index') }}" class="nav-link {{ Request::is('blogs*') ? 'active' : '' }}">
+                        <p>Blogs</p>
+                    </a>
+                </li>

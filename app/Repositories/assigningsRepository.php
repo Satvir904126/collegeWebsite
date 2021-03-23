@@ -2,27 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
+use App\Models\assignings;
 use App\Repositories\BaseRepository;
 
 /**
- * Class UserRepository
+ * Class assigningsRepository
  * @package App\Repositories
- * @version January 19, 2021, 11:58 pm UTC
- */
+ * @version March 13, 2021, 1:46 am UTC
+*/
 
-class UserRepository extends BaseRepository
+class assigningsRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'name',
-        'role_id',
-        'email',
-        'email_verified_at',
-        'password',
-        'remember_token'
+        'teacher_id',
+        'class_schedule_id'
     ];
 
     /**
@@ -40,6 +36,6 @@ class UserRepository extends BaseRepository
      **/
     public function model()
     {
-        return User::class;
+        return assignings::class;
     }
 }

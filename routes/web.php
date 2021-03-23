@@ -17,7 +17,19 @@ Route::get('/', function () {
     $courses = "";
     return view('welcome', compact('courses'));
 });
+
+
+
 Auth::routes();
+
+Route::get('/change-password', 'ChangePasswordController@index')->name('password.change');
+Route::post('/update-password', 'ChangePasswordController@changepassword')->name('password.update');
+
+Route::get('/change-password-student', 'ChangePasswordController@indexStudent')->name('student.password.change');
+Route::post('/update-password-student', 'ChangePasswordController@changepasswordStudent')->name('student.password.update');
+// Route::match(['get', 'post'], 'register', function () {
+//     return redirect('/');
+// });
 Route::group(['middleware' => 'studentSession'], function () {
     Route::match(['get', 'post'], 'account', 'StudentController@account');
     Route::match(['get', 'post'], 'student-bio', 'StudentController@studentBio');
@@ -95,3 +107,12 @@ Route::get('/blog/filter/{filter}', 'BlogsController@filterBlog')->name('filterB
 Route::get('/blog/searchPost', 'BlogsController@searchBlog')->name('searchBlog');
 
 Route::resource('blogs', 'blogsController');
+
+// Route::resource('assignings', 'assigningsController');
+Route::get('assignings/delete/{id}', 'assigningsController@destroy')->name('assignings.delete');
+Route::get('/assignings/edit/{id}', 'assigningsController@edit')->name('assignings.edit');
+Route::get('/assignings', 'assigningsController@index')->name('addAssigning');
+Route::post('/assignings/class', 'assigningsController@insert')->name('assignClass');
+Route::get('/assignings/search', 'assigningsController@searchSchedule')->name('searchSchedule');
+// pdf file
+Route::get('/download-pdf', 'assigningsController@downloadPdf')->name('download-pdf');

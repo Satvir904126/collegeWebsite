@@ -6,6 +6,7 @@ use App\Http\Requests\CreateClassAssigningRequest;
 use App\Http\Requests\UpdateClassAssigningRequest;
 use App\Repositories\ClassAssigningRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\ClassScheduling;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -30,8 +31,19 @@ class ClassAssigningController extends AppBaseController
     public function index(Request $request)
     {
         $classAssignings = $this->classAssigningRepository->all();
+        dd($classAssignings);
+        $classSchedule = ClassScheduling::join('courses', 'courses.course_id', '=', 'schedulings.course_id')
+            ->join('batches', 'batches.batch_id', '=', 'schedulings.batch_id')
+            ->join('classes', 'classes.class_id', '=', 'schedulings.classroom_id')
+            ->join('days', 'days.days_id', '=', 'schedulings.day_id')
+            ->join('levels', 'levels.level_id', '=', 'schedulings.level_id')
+            ->join('semesters', 'semesters.semester_id', '=', 'schedulings.semester_id')
+            ->join('shifts', 'shifts.shift_id', '=', 'schedulings.shift_id')
+            ->join('times', 'times.time_id', '=', 'schedulings.time_id')
+            ->join('classrooms', 'classrooms.classroom_id', '=', 'schedulings.classroom_id')
+            ->get();
 
-        return view('class_assignings.index')
+        return view('class_assignings.index', compact('classSchedule'))
             ->with('classAssignings', $classAssignings);
     }
 
@@ -42,6 +54,8 @@ class ClassAssigningController extends AppBaseController
      */
     public function create()
     {
+        dd("dd");
+
         return view('class_assignings.create');
     }
 

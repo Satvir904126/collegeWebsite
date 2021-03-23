@@ -15,13 +15,8 @@ class CreateClassAssigningsTable extends Migration
     {
         Schema::create('assignings', function (Blueprint $table) {
             $table->bigIncrements('class_assign_id');
-            $table->integer('course_id');
-            $table->integer('level_id');
-            $table->integer('shift_id');
-            $table->integer('classroom_id');
-            $table->integer('batch_id');
-            $table->integer('day_id');
-            $table->integer('time_id');
+            $table->integer('teacher_id');
+            $table->integer('class_schedule_id');
             $table->softDeletes();
             $table->timestamps();
         });

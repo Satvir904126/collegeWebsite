@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\blogs;
+use App\Models\assignings;
 use Faker\Generator as Faker;
 
-$factory->define(blogs::class, function (Faker $faker) {
+$factory->define(assignings::class, function (Faker $faker) {
 
     return [
         'teacher_id' => $faker->randomDigitNotNull,

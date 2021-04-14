@@ -1,12 +1,44 @@
 @extends('layouts.frontPageLayout.app')
 @section('content')
-<h1>helooooo</h1>
+<table class="table" id="semesters-table">
+    <thead>
+        <tr>
+            <th>Teacher Name</th>
+            <th>Attendance</th>
+            <th>Grades</th>
+        </tr>
+    </thead>
+    {{-- {{ dd($attendGrade)}} --}}
+    @if ($attendGrade != null)
+    <tbody>
+        @foreach ($attendGrade as $attendgrades )
+        <tr>
+            {{-- teacher first and last name --}}
+            <td>{{$attendgrades->first_name}}{{" "}}{{$attendgrades->last_name}}</td>
+            <td>{{$attendgrades->attendance}}%</td>
+            <td>{{$attendgrades->grades}}%</td>
+
+
+        </tr>
+        @endforeach
+    </tbody>
+
+    @else
+
+    <td>
+        <h2>No Attendace and grades yet</h2>
+    </td>
+    @endif
+
+
+
+</table>
 
 
 
 {{-- <a data-toggle="modal" data-target="#settings" class="btn btn-primary float-right"> <i class=" fa fa-plus-circle">
         Change Password</i> --}}
-</a>
+{{-- </a> --}}
 <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">

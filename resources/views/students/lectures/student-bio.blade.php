@@ -47,7 +47,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            {{-- <div class="col-md-3">
                 @include('flash::message')
 
                 @include('adminlte-templates::common.errors')
@@ -58,100 +58,98 @@
                         <div class="text-center">
                             <img class="profile-user-img img-responsive img-circle"
                                 src="{{asset('student_image/'.$students->image) }}" width="50" height="50"
-                                style="border-radius:50%; width:150px; height:150px; vartical-align:middle;"
-                                alt="students profile 	picture">
-                        </div>
+            style="border-radius:50%; width:150px; height:150px; vartical-align:middle;"
+            alt="students profile picture">
+        </div>
 
-                        <h3 class="profile-username text-center">{!! $students->first_name !!} {!! $students->last_name
-                            !!}</h3>
+        <h3 class="profile-username text-center">{!! $students->first_name !!} {!! $students->last_name
+            !!}</h3>
 
-                        <p class="text-muted text-center">Student</p>
+        <p class="text-muted text-center">Student</p>
 
-                        <ul class="list-group list-group-unbordered mb-3">
-                            <li class="list-group-item">
-                                <b>Followers</b> <a class="float-right">1,322</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Following</b> <a class="float-right">543</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Friends</b> <a class="float-right">13,287</a>
-                            </li>
-                        </ul>
+        <ul class="list-group list-group-unbordered mb-3">
+            <li class="list-group-item">
+                <b>Followers</b> <a class="float-right">1,322</a>
+            </li>
+            <li class="list-group-item">
+                <b>Following</b> <a class="float-right">543</a>
+            </li>
+            <li class="list-group-item">
+                <b>Friends</b> <a class="float-right">13,287</a>
+            </li>
+        </ul>
 
-                        <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+        <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+    </div>
+    <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+    <!-- About Me Box -->
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">About Me</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <strong><i class="fas fa-book mr-1"></i> Education</strong>
+
+            <p class="text-muted">
+                B.S. in Computer Science from the University of Tennessee at Knoxville
+            </p>
+
+            <hr>
+
+            <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+            <p class="text-muted">{!! $students->address !!}</p>
+
+            <hr>
+
+            <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+            <p class="text-muted">
+                <span class="tag tag-danger">UI Design</span>
+                <span class="tag tag-success">Coding</span>
+                <span class="tag tag-info">Javascript</span>
+                <span class="tag tag-warning">PHP</span>
+                <span class="tag tag-primary">Node.js</span>
+            </p>
+
+            <hr>
+
+            <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                fermentum enim neque.</p>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    </div> --}}
+    <!-- /.col -->
+
+
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header p-2">
+                <ul class="nav nav-pills ">
+                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#detail" data-toggle="tab">Timeline</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" id="abc" href="#settings" data-toggle="tab">Settings</a>
+                    </li>
+                </ul>
+            </div><!-- /.card-header -->
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="active tab-pane" id="activity">
+                        <!-- Post -->
+                        No Activity Yet.
+                        <!-- /.post -->
                     </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-
-                <!-- About Me Box -->
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">About Me</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
-                        <p class="text-muted">
-                            B.S. in Computer Science from the University of Tennessee at Knoxville
-                        </p>
-
-                        <hr>
-
-                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                        <p class="text-muted">{!! $students->address !!}</p>
-
-                        <hr>
-
-                        <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
-                        <p class="text-muted">
-                            <span class="tag tag-danger">UI Design</span>
-                            <span class="tag tag-success">Coding</span>
-                            <span class="tag tag-info">Javascript</span>
-                            <span class="tag tag-warning">PHP</span>
-                            <span class="tag tag-primary">Node.js</span>
-                        </p>
-
-                        <hr>
-
-                        <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                            fermentum enim neque.</p>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col -->
-
-
-            <div class="col-md-9">
-                <div class="card">
-                    <div class="card-header p-2">
-                        <ul class="nav nav-pills ">
-                            <li class="nav-item"><a class="nav-link active" href="#activity"
-                                    data-toggle="tab">Activity</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#detail" data-toggle="tab">Timeline</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" id="abc" href="#settings"
-                                    data-toggle="tab">Settings</a>
-                            </li>
-                        </ul>
-                    </div><!-- /.card-header -->
-                    <div class="card-body">
-                        <div class="tab-content">
-                            <div class="active tab-pane" id="activity">
-                                <!-- Post -->
-                                time table code is here
-                                <!-- /.post -->
-                            </div>
-                            <!-- /.tab-pane -->
-                            {{-- <div class="tab-pane" id="timeline">
+                    <!-- /.tab-pane -->
+                    {{-- <div class="tab-pane" id="timeline">
                                 <!-- The timeline -->
                                 <div class="timeline timeline-inverse">
                                     <!-- timeline time label -->
@@ -256,52 +254,51 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <!-- /.tab-pane -->
+                    <!-- /.tab-pane -->
 
-                            <div class="tab-pane" id="settings">
-                                <section class="content-header ">
-                                    <div class="container-fluid ">
-                                        <div class="row mb-2 ">
-                                            <div class="col-sm-12 ">
-                                                <h1>Change Password</h1>
-                                                <div class="content px-3 card-primary card-outline">
-                                                </div>
+                    <div class="tab-pane" id="settings">
+                        <section class="content-header ">
+                            <div class="container-fluid ">
+                                <div class="row mb-2 ">
+                                    <div class="col-sm-12 ">
+                                        <h1>Change Password</h1>
+                                        <div class="content px-3 card-primary card-outline">
+                                        </div>
 
-                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="content px-3 ">
+                            @include('flash::message')
+
+                            @include('adminlte-templates::common.errors')
+
+                            <div>
+                                <form action="{{url("/student-changePass")}}" method="POST" class="form-horizontal">
+                                    @csrf
+                                    <div class="form-group  row">
+                                        <input type="hidden" name="email" value="{{$students->email}}">
+                                        <label for="inputOldPass" class="col-sm-2 col-form-label">Old
+                                            Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="old_password"
+                                                name="old_password" placeholder="Old Password">
+                                            <i class="input-icon" id="messageError"> </i>
                                         </div>
                                     </div>
-                                </section>
+                                    <div class="form-group row">
+                                        <label for="inputNewPass" class="col-sm-2 col-form-label">New
+                                            Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="new_password"
+                                                name="new_password" placeholder="New Password">
+                                            <i class="input-icon" id="messageError"> </i>
 
-                                <div class="content px-3 ">
-                                    @include('flash::message')
-
-                                    @include('adminlte-templates::common.errors')
-
-                                    <div>
-                                        <form action="{{url("/student-changePass")}}" method="POST"
-                                            class="form-horizontal">
-                                            @csrf
-                                            <div class="form-group  row">
-                                                <input type="hidden" name="email" value="{{$students->email}}">
-                                                <label for="inputOldPass" class="col-sm-2 col-form-label">Old
-                                                    Password</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="old_password"
-                                                        name="old_password" placeholder="Old Password">
-                                                    <i class="input-icon" id="messageError"> </i>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputNewPass" class="col-sm-2 col-form-label">New
-                                                    Password</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="new_password"
-                                                        name="new_password" placeholder="New Password">
-                                                    <i class="input-icon" id="messageError"> </i>
-
-                                                </div>
-                                            </div>
-                                            {{-- <div class="form-group row">
+                                        </div>
+                                    </div>
+                                    {{-- <div class="form-group row">
                                         <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="inputName2" placeholder="Name">
@@ -331,133 +328,142 @@
                                             </div>
                                         </div>
                                     </div> --}}
-                                            <div class="form-group row">
-                                                <div class="offset-sm-2 col-sm-10">
-                                                    <button type="submit" class="btn btn-danger" id="updatePass">Update
-                                                        Password</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.tab-pane -->
-
-                            <div class="tab-pane" id="detail">
-                                <section class="content-header">
-                                    <div class="container-fluid">
-                                        <div class="row mb-2">
-                                            <div class="col-sm-12">
-                                                <h1>Student Biodata/ Profile</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                                <form class="form-horizontal">
-                                    <div class="form-group">
-                                        <label for="inputName" class="col-sm-3 control-label">Full Name</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="inputName"
-                                                value="{{$students->first_name}} {{$students->last_name}}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail" class="col-sm-3 control-label">Email</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="inputEmail"
-                                                value="{{$students->email}}" readonly>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-sm-12">
-                                        <div class="row">
-                                            <label for="inputName" class="col-sm-3 control-label">Gender</label>
-                                            <label for="inputName" class="col-sm-2 control-label">Status</label>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                @if($students->gender == 0)
-                                                <span> Male </span>
-                                                @else
-                                                <span> Female </span>
-                                                @endif
-                                            </div>
-
-
-
-                                            <div class="col-sm-3">
-                                                <p> @if($students->status ==0)
-                                                    Single
-                                                    @else Married
-                                                    @endif
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputName" class="col-sm-3 control-label">Date of Birth</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputName"
-                                                value="{{$students->dob}}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputName" class="col-sm-3 control-label">Phone No.</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputName"
-                                                value="+{{$students->phone}}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputName" class="col-sm-3 control-label">Passport No.</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputName"
-                                                value="{{$students->passport}}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputExperience" class="col-sm-3 control-label">Address</label>
-
-                                        <div class="col-sm-9">
-                                            <textarea class="form-control" id="inputExperience"
-                                                readonly>{{$students->address}}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputSkills" class="col-sm-3 control-label">Nationality</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputSkills"
-                                                value="{{$students->nationality}}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputSkills" class="col-sm-3 control-label">Register
-                                            Date</label>
-
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputSkills"
-                                                value="{{date("Y-m-d", strtotime ($students->dateregistered))}}"
-                                                readonly>
+                                    <div class="form-group row">
+                                        <div class="offset-sm-2 col-sm-10">
+                                            <button type="submit" class="btn btn-danger" id="updatePass">Update
+                                                Password</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
-                            <!-- /.tab-pane -->
                         </div>
-                        <!-- /.tab-content -->
-                    </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.tab-pane -->
+
+                    <div class="tab-pane" id="detail">
+                        <section class="content-header">
+                            <div class="container-fluid">
+                                <div class="row mb-2">
+                                    <div class="col-sm-12">
+                                        <h1>Student Biodata/ Profile</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-3 control-label">Full Name</label>
+
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="inputName"
+                                        value="{{$students->first_name}} {{$students->last_name}}" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-3 control-label">Roll no</label>
+
+                                <div class="col-sm-9">
+                                    <input type="roll_no" class="form-control" id="inputName"
+                                        value="{{$students->roll_no}}" readonly>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="inputEmail"
+                                        value="{{$students->email}}" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-12">
+                                <div class="row">
+                                    <label for="inputName" class="col-sm-3 control-label">Gender</label>
+                                    <label for="inputName" class="col-sm-2 control-label">Status</label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        @if($students->gender == 0)
+                                        <span> Male </span>
+                                        @else
+                                        <span> Female </span>
+                                        @endif
+                                    </div>
+
+
+
+                                    <div class="col-sm-3">
+                                        <p> @if($students->status ==0)
+                                            Single
+                                            @else Married
+                                            @endif
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-3 control-label">Date of Birth</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputName" value="{{$students->dob}}"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-3 control-label">Phone No.</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputName" value="+{{$students->phone}}"
+                                        readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="col-sm-3 control-label">Passport No.</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputName"
+                                        value="{{$students->passport}}" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputExperience" class="col-sm-3 control-label">Address</label>
+
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" id="inputExperience"
+                                        readonly>{{$students->address}}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputSkills" class="col-sm-3 control-label">Nationality</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputSkills"
+                                        value="{{$students->nationality}}" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputSkills" class="col-sm-3 control-label">Register
+                                    Date</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputSkills"
+                                        value="{{date("Y-m-d", strtotime ($students->dateregistered))}}" readonly>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.tab-pane -->
                 </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col -->
+                <!-- /.tab-content -->
+            </div><!-- /.card-body -->
         </div>
-        <!-- /.row -->
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
     </div><!-- /.container-fluid -->
 </section>
 

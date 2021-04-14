@@ -31,7 +31,7 @@ class ClassAssigningController extends AppBaseController
     public function index(Request $request)
     {
         $classAssignings = $this->classAssigningRepository->all();
-        dd($classAssignings);
+        //dd($classAssignings);
         $classSchedule = ClassScheduling::join('courses', 'courses.course_id', '=', 'schedulings.course_id')
             ->join('batches', 'batches.batch_id', '=', 'schedulings.batch_id')
             ->join('classes', 'classes.class_id', '=', 'schedulings.classroom_id')
@@ -42,7 +42,7 @@ class ClassAssigningController extends AppBaseController
             ->join('times', 'times.time_id', '=', 'schedulings.time_id')
             ->join('classrooms', 'classrooms.classroom_id', '=', 'schedulings.classroom_id')
             ->get();
-
+        // dd($classSchedule);
         return view('class_assignings.index', compact('classSchedule'))
             ->with('classAssignings', $classAssignings);
     }
@@ -54,7 +54,7 @@ class ClassAssigningController extends AppBaseController
      */
     public function create()
     {
-        dd("dd");
+        //dd("dd");
 
         return view('class_assignings.create');
     }

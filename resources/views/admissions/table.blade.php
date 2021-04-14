@@ -19,7 +19,7 @@
                 <th>Status</th>
                 <th>Dateregistered</th>
                 <th>User Id</th>
-                <th>Class Id</th>
+                <th>Course </th>
                 <th>Image</th>
                 <th colspan="3">Action</th>
             </tr>
@@ -44,7 +44,7 @@
                 <td>{{ $admission->status }}</td>
                 <td>{{ $admission->dateregistered }}</td>
                 <td>{{ $admission->user_id }}</td>
-                <td>{{ $admission->class_id }}</td>
+                <td>{{ $admission->course_name }}</td>
                 <td><img src="{{asset('student_image/'.$admission->image) }}" alt="studentImg" srcset=""
                         class="imgStyle" width="120"> </td>
                 <td width="120">

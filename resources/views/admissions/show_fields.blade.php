@@ -111,4 +111,3 @@
     {!! Form::label('image', 'Image:') !!}
     <p>{{ $admission->image }}</p>
 </div>
-

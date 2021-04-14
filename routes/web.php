@@ -97,6 +97,7 @@ Route::resource('users', 'UserController')->middleware('auth');
 Route::resource('semesters', 'SemesterController')->middleware('auth');
 
 Route::get('/dynamiclevel', ['as' => 'dynamiclevel', 'uses' => 'ClassSchedulingController@DynamicLevel']);
+Route::get('/dynamicstudent', ['as' => 'dynamicstudent', 'uses' => 'RollsControlller@DynamicStudent']);
 
 Route::resource('rolls', 'RollsController');
 Route::get('about-us', 'AboutusController@index')->name('aboui-us');
@@ -116,3 +117,14 @@ Route::post('/assignings/class', 'assigningsController@insert')->name('assignCla
 Route::get('/assignings/search', 'assigningsController@searchSchedule')->name('searchSchedule');
 // pdf file
 Route::get('/download-pdf', 'assigningsController@downloadPdf')->name('download-pdf');
+
+//change language
+// Route::get('locale/{locale}', 'StudentController@languages');
+//teacher class assignings after login
+Route::get('/home', 'HomeController@index')->name('home');
+
+// grades by teacher to students
+// Route::get('grades', 'AttendanceController@grades')->name('grades')->middleware('auth');
+Route::get('attendance/{id}', 'AttendanceController@index')->name('course_id');
+Route::get('attendance/{id}/grades', 'AttendanceController@grades')->name('attandance.grades');
+// Route::post('tabledit/action', 'AttendanceController@editAttnedance')->name('tabledit.action');

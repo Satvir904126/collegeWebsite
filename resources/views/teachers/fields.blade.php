@@ -1,7 +1,7 @@
 <style>
     .teacher_image {
         height: 130px;
-        width: 100%;
+        /* width: 0%; */
         /* background-color: aqua; */
         border-radius: 12%;
     }
@@ -187,7 +187,8 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="image">
-                                                        {{ Html::image('student_images/profile.jpg', null, ['class' =>
+                                                        {{ Html::image(URL::asset('template/img/dpmt/personTemp.png'),
+                                                        null, ['class' =>
                                                         'teacher_image', 'id' => 'showImage']) }}
                                                         <input type="file" name="image" id="image"
                                                             accept="image/x-pmg,image/png,image/jpg,image/jpeg">

@@ -54,10 +54,10 @@
                     <td class="align col-md-3">{{ $assignings->course_name }}</td>
                     <td class="align col-md-3">{{ $assignings->semester_name }}</td>
                     <td class="align col-md-3">
-                        <span class="detail">Level:</span>{{ $assignings->time}}|{{ $assignings->level }}|
-                        <span class="detail">Day</span>{{ $assignings->name }}|{{ $assignings->class_name }}
+                        <span class="detail">Level:</span>{{ $assignings->level }}|{{ $assignings->class_name }}
+                        <span class="detail">Day:</span>{{ $assignings->name }}|{{ $assignings->time}}
                         <span class="detail">Shift:</span>{{ $assignings->shift }}|{{ $assignings->batch }}
-                        <span class="detail"></span>{{ $assignings->classroom_name }}
+                        <span class="detail">Class:</span>{{ $assignings->classroom_name }}
 
 
                     </td>

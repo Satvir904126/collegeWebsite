@@ -145,6 +145,70 @@
         <div class="content-wrapper">
             <section class="content">
                 @yield('content')
+                <div class="col-sm-4">
+                    <h2>Classes for Teacher</h20>
+                </div>
+                <div>
+                    <div class="table-responsive">
+                        <table class="table" id="assignings-table">
+                            <thead>
+                                <tr>
+                                    <th>Teacher</th>
+                                    <th>Course</th>
+                                    <th>Semester </th>
+                                    <th>Details</th>
+                                    <th colspan="3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($classAssigning as $assignings)
+                                <tr>
+                                    <td>{{ $assignings->first_name }}{{" "}}{{ $assignings->last_name }}</td>
+                                    <td>{{ $assignings->course_name }}</td>
+                                    <td>{{ $assignings->semester_name }}</td>
+                                    <td>{{ $assignings->time}}|
+                                        {{ $assignings->name }}|
+                                        {{ $assignings->shift }}|
+                                        {{ $assignings->level }}|
+                                        {{ $assignings->class_name }}|
+                                        {{ $assignings->batch }}|
+                                        {{ $assignings->classroom_name }}
+
+                                    </td>
+                                    <td width="120">
+                                        {!! Form::open( ) !!}
+                                        <div class='btn-group'>
+                                            <a href="{{route("course_id", $assignings->course_id)}}" class='btn
+                                            btn-primary btn-sm'>
+                                                Attendance and Grades
+                                            </a>
+                                            {{-- <a href="{{route("grades")}}" class='btn
+                                            btn-danger btn-sm'>
+                                            Grades
+                                            </a> --}}
+                                            {{-- <a href="{{ route('assignings.edit', $assignings->class_assign_id) }}"
+                                            class='btn
+                                            btn-default
+                                            btn-xs'>
+                                            <i class="far fa-edit"></i>
+                                            </a> --}}
+                                            {{-- {!! Form::button('Grades', ['type' => 'submit',
+                                            'class' => 'btn
+                                            btn-danger btn-xs']) !!} --}}
+                                        </div>
+
+
+
+
+                                        {!! Form::close() !!}
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        {{-- {{$classAssigning->links()}} --}}
+                    </div>
+                </div>
             </section>
         </div>
 

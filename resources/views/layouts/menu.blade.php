@@ -154,7 +154,7 @@
     @if (Auth::user()->role_id < 2) <li class="nav-item">
         <a href="{{ route('users.index') }}" class="nav-link {{ Request::is('users*') ? 'active' : '' }}">
             <i class="fa fa-edit"></i>
-            <p>Users</p>
+            <p>Add Admin/Teacher</p>
         </a>
         </li>
         @endif
@@ -162,20 +162,24 @@
 
 
         @if (Auth::user()->role_id < 4) <li class="nav-item">
-            <a href="{{ route('attendances.index') }}"
-                class="nav-link {{ Request::is('attendances*') ? 'active' : '' }}">
+            <a href="{{ url('home') }}" class="nav-link {{ Request::is('attendances*') ? 'active' : '' }}">
                 <i class="fa fa-edit"></i>
                 <p>Attendances</p>
             </a>
             </li>
             @endif
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route('roles.index') }}" class="nav-link {{ Request::is('roles*') ? 'active' : '' }}">
+            <i class="fa fa-edit"></i>
+            <p>Roles</p>
+            </a>
+            </li> --}}
+            <li class="nav-item">
+                <a href="{{ route('rolls.index') }}" class="nav-link {{ Request::is('rolls*') ? 'active' : '' }}">
                     <i class="fa fa-edit"></i>
-                    <p>Roles</p>
+                    <p>Rolls for Students</p>
                 </a>
             </li>
-
             @if (Auth::user()->role_id < 4) <li class="nav-item">
                 <a href="{{ route('transactions.index') }}"
                     class="nav-link {{ Request::is('transactions*') ? 'active' : '' }}">
@@ -248,15 +252,12 @@
 
                 </script>
                 @endpush
-                <li class="nav-item">
-                    <a href="{{ route('rolls.index') }}" class="nav-link {{ Request::is('rolls*') ? 'active' : '' }}">
-                        <p>Rolls for Students</p>
-                    </a>
-                </li>
+
 
 
                 <li class="nav-item">
                     <a href="{{ route('blogs.index') }}" class="nav-link {{ Request::is('blogs*') ? 'active' : '' }}">
+                        <i class="fa fa-edit"></i>
                         <p>Blogs</p>
                     </a>
                 </li>

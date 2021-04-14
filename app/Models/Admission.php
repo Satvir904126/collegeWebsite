@@ -120,7 +120,7 @@ class Admission extends Model
         'user_id' => 'required|integer',
         'class_id' => 'required|integer',
         // 'image' => 'required|string|max:255',
-        'image' => 'image',
+        'image' => 'image|max:10240',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

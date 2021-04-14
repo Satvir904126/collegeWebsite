@@ -191,11 +191,11 @@
                             </div>
                             <!-- /.user-block -->
                             <div class="row margin-bottom">
-                                <div class="col-sm-6">
+                                {{-- <div class="col-sm-6">
                                     <img class="img-responsive" src="../../dist/img/photo1.png" alt="Photo">
-                                </div>
+                                </div> --}}
                                 <!-- /.col -->
-                                <div class="col-sm-6">
+                                {{-- <div class="col-sm-6">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <img class="img-responsive" src="../../dist/img/photo2.png" alt="Photo">
@@ -211,7 +211,7 @@
                                         <!-- /.col -->
                                     </div>
                                     <!-- /.row -->
-                                </div>
+                                </div> --}}
                                 <!-- /.col -->
                             </div>
                             <!-- /.row -->

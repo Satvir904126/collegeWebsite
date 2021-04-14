@@ -1,7 +1,7 @@
 <style>
     .student_image {
-        height: 130px;
-        width: 100%;
+        height: 150px;
+        /* width: 100%; */
         /* background-color: aqua; */
         border-radius: 12%;
     }
@@ -138,8 +138,15 @@
 
 <!-- Class Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('class_id', 'Class Id:') !!}
-    {!! Form::number('class_id', null, ['class' => 'form-control']) !!}
+    {!! Form::label('class_id', 'Class:') !!}
+    {{-- {!! Form::number('class_id', null, ['class' => 'form-control']) !!} --}}
+    <select class="form-control" name="class_id" id="class_id">
+        <option value="">Select Course</option>
+        @foreach ($course as $item)
+        <option value="{{ $item->course_id }}">{{ $item->course_name }}</option>
+
+        @endforeach
+    </select>
 </div>
 
 <!-- Image Field -->
@@ -149,9 +156,9 @@
 </div> --}}
 <!-- Image Field -->
 <div class="form-group col-sm-6 ">
-    <div class="from-group-login col-sm-3">
+    <div class="from-group-login col-sm-6">
 
-        {{ Html::image('student_images/profile.jpg', null, ['class' =>
+        {{ Html::image(URL::asset('template/img/dpmt/personTemp.png'), null, ['class' =>
                         'student_image', 'id' => 'showImage']) }}
         <input type="file" name="image" id="image" accept="image/x-pmg,image/png,image/jpg,image/jpeg">
 

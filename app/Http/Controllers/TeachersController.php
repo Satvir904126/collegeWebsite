@@ -61,7 +61,7 @@ class TeachersController extends AppBaseController
         // dd($input);
         // adding teacher image
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ]);
         $image = $request->file('image');
 

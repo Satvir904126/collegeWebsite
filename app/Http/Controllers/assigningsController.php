@@ -49,6 +49,7 @@ class assigningsController extends AppBaseController
             ->join('times', 'times.time_id', '=', 'schedulings.time_id')
             ->join('classrooms', 'classrooms.classroom_id', '=', 'schedulings.classroom_id')
             ->get();
+        //dd($classSchedule);
 
         $classAssigning = assignings::join('schedulings', 'schedulings.scedule_id', '=', 'assignings.class_schedule_id')
             ->join('teachers', 'teachers.techer_id', '=', 'assignings.teacher_id')

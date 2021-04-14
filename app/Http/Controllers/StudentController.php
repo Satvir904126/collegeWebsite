@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admission;
+use App\Models\Attendance;
 use App\Models\Role;
 use App\Models\Roll;
 use App\Models\Rolls;
@@ -63,13 +64,28 @@ class StudentController extends Controller
         } else {
             return redirect('/student')->with('error', 'please login to access');
         }
-        return view('students.account', compact('student'));
+        $studentId = Rolls::where('username', '=', session('studentSession'))->value('student_id');
+        $rollNo = Admission::where("student_id", "=", $studentId)->value('roll_no');
+        $attendGrade = Attendance::where("rollNo", "=", $rollNo)->value('rollNo');
+
+        // dd($attendGrade);
+        if ($attendGrade == null) {
+            return view('students.account', compact('student', "attendGrade"));
+        } else {
+            $attendGrade = Attendance::where("rollNo", "=", $rollNo)
+                ->join('teachers', 'teachers.techer_id', '=', 'attendance_grdes.teacher')
+                ->get();
+            // dd($attendGrade);
+
+            return view('students.account', compact('student', "attendGrade"));
+        }
     }
     public function index()
     {
     }
     public function studentBio(Request $request)
     {
+
         if ($request->ajax()) {
             dd("hello1");
         }

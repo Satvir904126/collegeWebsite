@@ -15,7 +15,7 @@ class AboutusController extends Controller
      */
     public function index()
     {
-        $teachers = Teachers::all()->random(4);
+        $teachers = Teachers::all()->random(3);
         // dd($teachers);
         return view('about-us', compact('teachers'));
     }

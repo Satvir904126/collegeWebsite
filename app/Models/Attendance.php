@@ -20,22 +20,27 @@ class Attendance extends Model
 {
     use SoftDeletes;
 
-    public $table = 'attendances';
-    
+    public $table = 'attendance_grdes';
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
 
     protected $dates = ['deleted_at'];
+    protected $primaryKey = 'attendance_id';
 
 
 
     public $fillable = [
-        'student_id',
-        'class_id',
-        'subject_id',
-        'teacher_id',
-        'attendance_status'
+        'rollNO',
+        'student_name',
+        'attendance',
+        'grades'
+        // 'student_id',
+        // 'class_id',
+        // 'subject_id',
+        // 'teacher_id',
+        // 'attendance_status'
     ];
 
     /**
@@ -44,12 +49,13 @@ class Attendance extends Model
      * @var array
      */
     protected $casts = [
-        'attendance_id' => 'integer',
-        'student_id' => 'integer',
-        'class_id' => 'integer',
-        'subject_id' => 'integer',
-        'teacher_id' => 'integer',
-        'attendance_status' => 'boolean'
+
+        // 'attendance_id' => 'integer',
+        // 'student_id' => 'integer',
+        // 'class_id' => 'integer',
+        // 'subject_id' => 'integer',
+        // 'teacher_id' => 'integer',
+        // 'attendance_status' => 'boolean'
     ];
 
     /**
@@ -58,15 +64,13 @@ class Attendance extends Model
      * @var array
      */
     public static $rules = [
-        'student_id' => 'required|integer',
-        'class_id' => 'required|integer',
-        'subject_id' => 'required|integer',
-        'teacher_id' => 'required|integer',
-        'attendance_status' => 'required|boolean',
-        'deleted_at' => 'nullable',
-        'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        // 'student_id' => 'required|integer',
+        // 'class_id' => 'required|integer',
+        // 'subject_id' => 'required|integer',
+        // 'teacher_id' => 'required|integer',
+        // 'attendance_status' => 'required|boolean',
+        // 'deleted_at' => 'nullable',
+        // 'created_at' => 'nullable',
+        // 'updated_at' => 'nullable'
     ];
-
-    
 }

@@ -15,7 +15,19 @@
             @foreach($users as $user)
             <tr>
                 <td>{{ $user->name }}</td>
-                <td>{{ $user->role_id }}</td>
+
+                <td>
+                    @if ($user->role_id == 1)
+                    <div class="bg-success text-center"> Director</div>
+                    @elseif ($user->role_id == 2)
+                    <div class="bg-danger text-center">Admin </div>
+                    @elseif ($user->role_id == 3)
+                    <div class="bg-success text-center">Teacher </div>
+                    @elseif ($user->role_id == 4)
+                    <div class="bg-danger text-center">Student </div>
+                    @endif
+
+                </td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->email_verified_at }}</td>
                 <td>{{ $user->password }}</td>

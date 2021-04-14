@@ -6,8 +6,12 @@ use App\Http\Requests\CreateAttendanceRequest;
 use App\Http\Requests\UpdateAttendanceRequest;
 use App\Repositories\AttendanceRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Admission;
+use App\Models\Attendance;
+use App\Models\Courses;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Response;
 
 class AttendanceController extends AppBaseController
@@ -27,12 +31,20 @@ class AttendanceController extends AppBaseController
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
-        $attendances = $this->attendanceRepository->all();
 
-        return view('attendances.index')
-            ->with('attendances', $attendances);
+        $request->session()->put('course_id', $id);
+
+
+        $attendance = Admission::leftjoin('attendance_grdes', 'attendance_grdes.rollNO', '=', 'admissions.roll_no')->where('course_id', '=', $id)->get();
+        $courseName = Courses::where('course_id', '=', $id)->value('course_name');
+
+
+        // dd($attendance);
+        ucfirst($courseName);
+
+        return view('attendances.index', compact('courseName', 'attendance'));
     }
 
     /**
@@ -40,11 +52,65 @@ class AttendanceController extends AppBaseController
      *
      * @return Response
      */
+
+    public function grades(Request $request)
+    {
+        // dd($request->course_id);
+        // $levels = $this->levelsRepository->create($input);
+        // dd($request->session()->get('course_id'));
+
+
+
+
+        $checkAttendance = Attendance::where('rollNo', '=', $request->input('roll_no'))->first();
+        // create new attendance and graades
+        if ($checkAttendance == null) {
+            $AttendGrades = $request->all();
+            $AttendGrades = new Attendance;
+            $AttendGrades->rollNo = $request->roll_no;
+            $AttendGrades->student_name = $request->name;
+            $AttendGrades->attendance = $request->attendance;
+            $AttendGrades->grades = $request->grades;
+            $AttendGrades->teacher = Auth::user()->id;
+            // dd($AttendGrades);
+
+            $AttendGrades->save();
+        } else {
+            // Edit attendance and grades
+            $AttendGrades = $request->all();
+
+            $AttendGrades = Attendance::where('rollNo', '=', $request->input('roll_no'))->first();
+
+            $AttendGrades->rollNo = $request->roll_no;
+            $AttendGrades->student_name = $request->name;
+            $AttendGrades->attendance = $request->attendance;
+            $AttendGrades->grades = $request->grades;
+            $AttendGrades->teacher = Auth::user()->id;
+            // dd($AttendGrades);
+
+            $AttendGrades->save();
+        }
+        $attendance = Admission::leftjoin('attendance_grdes', 'attendance_grdes.rollNO', '=', 'admissions.roll_no')->where('course_id', '=', $request->course_id)->get();
+        $courseName = Courses::where('course_id', '=', $request->session()->get('course_id'))->value('course_name');
+        ucfirst($courseName);
+        return view('attendances.index', compact('courseName', 'attendance'));
+    }
     public function create()
     {
         return view('attendances.create');
     }
 
+    public function editAttnedance(Request $request)
+    {
+        if ($request->ajax()) {
+            if ($request->action == 'Edit') {
+                $data = array(
+                    'first_name' => "satvir",
+                    'last_name' => "Singh"
+                );
+            }
+        }
+    }
     /**
      * Store a newly created Attendance in storage.
      *

@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateAdmissionRequest;
 use App\Repositories\AdmissionRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Admission;
+use App\Models\Courses;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -30,7 +31,8 @@ class AdmissionController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $admissions = $this->admissionRepository->all();
+        $admissions = Admission::join('courses', 'courses.course_id', '=', 'admissions.course_id')->get();
+        // dd($admissions);
 
         return view('admissions.index')
             ->with('admissions', $admissions);
@@ -43,7 +45,9 @@ class AdmissionController extends AppBaseController
      */
     public function create()
     {
-        return view('admissions.create');
+        $course = Courses::all();
+
+        return view('admissions.create', compact('course'));
     }
 
     /**
@@ -59,7 +63,7 @@ class AdmissionController extends AppBaseController
         //////////////
         // adding student image
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ]);
         $image = $request->file('image');
 
@@ -86,7 +90,7 @@ class AdmissionController extends AppBaseController
         $student->status = $request->status;
         $student->dateregistered = $request->dateregistered;
         $student->user_id = $request->user_id;
-        $student->class_id = $request->class_id;
+        $student->course_id = $request->class_id;
         $student->image = $image_name;
 
         // dd($student);
@@ -129,15 +133,16 @@ class AdmissionController extends AppBaseController
      */
     public function edit($id)
     {
-        $admission = $this->admissionRepository->find($id);
+        $course = Courses::all();
 
+        $admission = $this->admissionRepository->find($id);
         if (empty($admission)) {
             Flash::error('Admission not found');
 
             return redirect(route('admissions.index'));
         }
 
-        return view('admissions.edit')->with('admission', $admission);
+        return view('admissions.edit', compact('course'))->with('admission', $admission);
     }
 
     /**

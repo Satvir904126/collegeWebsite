@@ -24,8 +24,8 @@ class CreateScedulingsTable extends Migration
             $table->integer('time_id');
             // $table->integer('teacher_id');
             $table->integer('semester_id');
-            $table->time('start_date');
-            $table->time('end_date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->tinyInteger('status')->default(1);
             $table->softDeletes();
             $table->timestamps();

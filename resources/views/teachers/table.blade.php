@@ -1,8 +1,8 @@
 <style>
     .imgStyle {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        border-radius: 10%;
     }
 </style>
 <div class="table-responsive">

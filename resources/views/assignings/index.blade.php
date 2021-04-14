@@ -33,7 +33,7 @@ Add New
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                             <a href="{{route('download-pdf')}}" class='btn '>Download PDF</a>
-                            <a href="" class="btn">Import Pdf </a>
+                            {{-- <a href="" class="btn">Import Pdf </a> --}}
                         </div>
                     </div>
                 </div>

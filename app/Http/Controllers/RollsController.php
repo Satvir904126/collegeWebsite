@@ -6,6 +6,8 @@ use App\Http\Requests\CreateRollsRequest;
 use App\Http\Requests\UpdateRollsRequest;
 use App\Repositories\RollsRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Admission;
+use App\Models\Rolls;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -30,11 +32,16 @@ class RollsController extends AppBaseController
     public function index(Request $request)
     {
         $rolls = $this->rollsRepository->all();
-
         return view('rolls.index')
             ->with('rolls', $rolls);
     }
 
+    public function DynamicStudent(Request $request)
+    {
+        $student_id = $request->get('student_id');
+        $email = Admission::where('student_id', '=', $student_id)->get();
+        return Response::json($email);
+    }
     /**
      * Show the form for creating a new Rolls.
      *
@@ -42,7 +49,8 @@ class RollsController extends AppBaseController
      */
     public function create()
     {
-        return view('rolls.create');
+        $admission = Admission::all();
+        return view('rolls.create', compact("admission"));
     }
 
     /**
@@ -55,10 +63,20 @@ class RollsController extends AppBaseController
     public function store(CreateRollsRequest $request)
     {
         $input = $request->all();
+        $checkStudent = Rolls::where('student_id', '=', $request->input('student_id'))->first();
+        $checkStudentemail = Rolls::where('username', '=', $request->input('username'))->first();
+        // dd($checkStudentemail);
+        if ($checkStudent == null) {
+            if ($checkStudentemail == null) {
+                $rolls = $this->rollsRepository->create($input);
 
-        $rolls = $this->rollsRepository->create($input);
-
-        Flash::success('Rolls saved successfully.');
+                Flash::success('Rolls saved successfully.');
+            } else {
+                Flash::error('User Email already assigned to Student .');
+            }
+        } else {
+            Flash::error('Roll No already assigned to Student .');
+        }
 
         return redirect(route('rolls.index'));
     }

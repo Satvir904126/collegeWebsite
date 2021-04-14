@@ -25,7 +25,6 @@
                         </thead>
                         <tbody>
                             @foreach ($classSchedule as $schedule)
-                            {{-- {{dd($schedule->scedule_id)}} --}}
                             <tr>
                                 <td><input type="checkbox" name="multiclass[]" value="{{$schedule->scedule_id}}">
                                 </td>

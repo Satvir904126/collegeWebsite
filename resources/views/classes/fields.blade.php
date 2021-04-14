@@ -31,7 +31,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                {!! Form::submit('Create Batch', ['class' => 'btn btn-success']) !!}
+                {!! Form::submit('Create Class', ['class' => 'btn btn-success']) !!}
 
             </div>
         </div>

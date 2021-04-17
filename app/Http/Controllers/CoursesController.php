@@ -56,7 +56,7 @@ class CoursesController extends AppBaseController
     public function courseSearch(Request $request)
     {
         $course = $request->input('courses');
-
+        dd("levels here");
         $courses = Courses::Where("course_name", "LIKE", "%$course%")->get();
         return view('courses', compact('courses'));
     }

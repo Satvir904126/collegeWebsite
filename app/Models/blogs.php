@@ -60,7 +60,7 @@ class blogs extends Model
         'category' => 'required|string|max:255',
         'content' => 'required|string|max:255',
         // 'student_id' => 'string|max:255',
-        'image' => 'image|size:5000 ',
+        'image' => 'image|max:10240 ',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

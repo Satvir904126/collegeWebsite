@@ -63,8 +63,8 @@ class Rolls extends Model
         'student_id' => 'required|integer',
         'username' => 'required|string|max:255',
         'password' => 'required|string|max:255',
-        'login_time' => 'required',
-        'logout_time' => 'required',
+        // 'login_time' => 'required',
+        // 'logout_time' => 'required',
         'deleted_at' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

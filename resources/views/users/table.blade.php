@@ -7,7 +7,7 @@
                 <th>Email</th>
                 <th>Email Verified At</th>
                 <th>Password</th>
-                <th>Remember Token</th>
+                {{-- <th>Remember Token</th> --}}
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -22,7 +22,7 @@
                     @elseif ($user->role_id == 2)
                     <div class="bg-danger text-center">Admin </div>
                     @elseif ($user->role_id == 3)
-                    <div class="bg-success text-center">Teacher </div>
+                    <div class="bg-primary text-center">Teacher </div>
                     @elseif ($user->role_id == 4)
                     <div class="bg-danger text-center">Student </div>
                     @endif
@@ -31,7 +31,7 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->email_verified_at }}</td>
                 <td>{{ $user->password }}</td>
-                <td>{{ $user->remember_token }}</td>
+                {{-- <td>{{ $user->remember_token }}</td> --}}
                 <td width="120">
                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

@@ -97,7 +97,8 @@ Route::resource('users', 'UserController')->middleware('auth');
 Route::resource('semesters', 'SemesterController')->middleware('auth');
 
 Route::get('/dynamiclevel', ['as' => 'dynamiclevel', 'uses' => 'ClassSchedulingController@DynamicLevel']);
-Route::get('/dynamicstudent', ['as' => 'dynamicstudent', 'uses' => 'RollsControlller@DynamicStudent']);
+Route::get('rolls/dynamicstudent', ['as' => 'rolls/dynamicstudent', 'uses' => 'RollsController@dynamicStudent']);
+// Route::get('dynamicstudent/{id}', 'RollsController@dynamicStudent')->name('dynamicstudent');
 
 Route::resource('rolls', 'RollsController');
 Route::get('about-us', 'AboutusController@index')->name('aboui-us');

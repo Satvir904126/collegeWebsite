@@ -48,7 +48,7 @@
                                  var course_id = e.target.value;
                                  $('#level_id').empty();
                                  $.get('dynamiclevel?course_id=' + course_id, function(data) {
-                                     console.log(data);
+                                     console.log("d",data);
                                      $.each(data, function(index, lev) {
                                          $('#level_id').append('<option value ="' + lev.level_id +
                                              '">' +

@@ -16,9 +16,9 @@
                 <th>Current Address</th>
                 <th>Nationality</th>
                 <th>Passport</th>
-                <th>Status</th>
+                {{-- <th>Status</th> --}}
                 <th>Dateregistered</th>
-                <th>User Id</th>
+                {{-- <th>User Id</th> --}}
                 <th>Course </th>
                 <th>Image</th>
                 <th colspan="3">Action</th>
@@ -41,9 +41,9 @@
                 <td>{{ $admission->current_address }}</td>
                 <td>{{ $admission->nationality }}</td>
                 <td>{{ $admission->passport }}</td>
-                <td>{{ $admission->status }}</td>
+                {{-- <td>{{ $admission->status }}</td> --}}
                 <td>{{ $admission->dateregistered }}</td>
-                <td>{{ $admission->user_id }}</td>
+                {{-- <td>{{ $admission->user_id }}</td> --}}
                 <td>{{ $admission->course_name }}</td>
                 <td><img src="{{asset('student_image/'.$admission->image) }}" alt="studentImg" srcset=""
                         class="imgStyle" width="120"> </td>

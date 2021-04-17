@@ -113,7 +113,7 @@ class blogsController extends AppBaseController
         $input = $request->all();
         // dd($input);
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
         ]);
         $image = $request->file('image');
 

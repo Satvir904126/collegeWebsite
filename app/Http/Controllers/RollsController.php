@@ -31,16 +31,20 @@ class RollsController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $rolls = $this->rollsRepository->all();
+        $rolls = Rolls::join('admissions', "admissions.student_id", "=", "rolls.student_id")->get();
+        // dd($rolls);
         return view('rolls.index')
             ->with('rolls', $rolls);
     }
 
-    public function DynamicStudent(Request $request)
+    public function dynamicStudent(Request $request)
     {
-        $student_id = $request->get('student_id');
-        $email = Admission::where('student_id', '=', $student_id)->get();
-        return Response::json($email);
+
+        $student_id = $request->get("id");
+        $student = Admission::where('student_id', '=', $student_id)->get();
+        // dd($student);
+
+        return Response::json($student);
     }
     /**
      * Show the form for creating a new Rolls.
@@ -63,6 +67,7 @@ class RollsController extends AppBaseController
     public function store(CreateRollsRequest $request)
     {
         $input = $request->all();
+        // dd("FF");
         $checkStudent = Rolls::where('student_id', '=', $request->input('student_id'))->first();
         $checkStudentemail = Rolls::where('username', '=', $request->input('username'))->first();
         // dd($checkStudentemail);
@@ -111,6 +116,7 @@ class RollsController extends AppBaseController
     public function edit($id)
     {
         $rolls = $this->rollsRepository->find($id);
+        $admission = Admission::all();
 
         if (empty($rolls)) {
             Flash::error('Rolls not found');
@@ -118,7 +124,7 @@ class RollsController extends AppBaseController
             return redirect(route('rolls.index'));
         }
 
-        return view('rolls.edit')->with('rolls', $rolls);
+        return view('rolls.edit', compact("admission"))->with('rolls', $rolls);
     }
 
     /**

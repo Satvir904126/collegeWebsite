@@ -63,7 +63,7 @@ class Admission extends Model
         'status',
         'dateregistered',
         'user_id',
-        'class_id',
+        'course_id',
         'image'
     ];
 
@@ -91,7 +91,7 @@ class Admission extends Model
         'status' => 'boolean',
         'dateregistered' => 'date',
         'user_id' => 'integer',
-        'class_id' => 'integer',
+        'course_id' => 'integer',
         'image' => 'string'
     ];
 
@@ -117,8 +117,8 @@ class Admission extends Model
         'passport' => 'required|string|max:255',
         'status' => 'required|boolean',
         'dateregistered' => 'required',
-        'user_id' => 'required|integer',
-        'class_id' => 'required|integer',
+        'user_id' => 'integer',
+        'course_id' => 'integer',
         // 'image' => 'required|string|max:255',
         'image' => 'image|max:10240',
         'deleted_at' => 'nullable',
